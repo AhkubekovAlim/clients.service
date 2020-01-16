@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RequestService index{% endblock %}
+
+{% block body %}
+    <h1>RequestService index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date_create</th>
+                <th>Type_id</th>
+                <th>Client_id</th>
+                <th>Body</th>
+                <th>Response</th>
+                <th>Channel</th>
+                <th>Priority</th>
+                <th>Parent_id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for request_service in request_services %}
+            <tr>
+                <td>{{ request_service.id }}</td>
+                <td>{{ request_service.dateCreate ? request_service.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ request_service.typeId }}</td>
+                <td>{{ request_service.clientId }}</td>
+                <td>{{ request_service.body }}</td>
+                <td>{{ request_service.response }}</td>
+                <td>{{ request_service.channel }}</td>
+                <td>{{ request_service.priority }}</td>
+                <td>{{ request_service.parentId }}</td>
+                <td>
+                    <a href="{{ path('request_service_show', {'id': request_service.id}) }}">show</a>
+                    <a href="{{ path('request_service_edit', {'id': request_service.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('request_service_new') }}">Create new</a>
+{% endblock %}

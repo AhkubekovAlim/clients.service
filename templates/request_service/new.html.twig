@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Новый запрос{% endblock %}
+
+{% block body %}
+    <h1>Создание запроса</h1>
+
+    {{ include('request_service/_form.html.twig') }}
+
+    <a href="{{ path('request_service_index') }}">back to list</a>
+{% endblock %}

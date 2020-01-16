@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RequestService{% endblock %}
+
+{% block body %}
+    <h1>RequestService</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ request_service.id }}</td>
+            </tr>
+            <tr>
+                <th>Date_create</th>
+                <td>{{ request_service.dateCreate ? request_service.dateCreate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Type_id</th>
+                <td>{{ request_service.typeId }}</td>
+            </tr>
+            <tr>
+                <th>Client_id</th>
+                <td>{{ request_service.clientId }}</td>
+            </tr>
+            <tr>
+                <th>Body</th>
+                <td>{{ request_service.body }}</td>
+            </tr>
+            <tr>
+                <th>Response</th>
+                <td>{{ request_service.response }}</td>
+            </tr>
+            <tr>
+                <th>Channel</th>
+                <td>{{ request_service.channel }}</td>
+            </tr>
+            <tr>
+                <th>Priority</th>
+                <td>{{ request_service.priority }}</td>
+            </tr>
+            <tr>
+                <th>Parent_id</th>
+                <td>{{ request_service.parentId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('request_service_index') }}">back to list</a>
+
+    <a href="{{ path('request_service_edit', {'id': request_service.id}) }}">edit</a>
+
+    {{ include('request_service/_delete_form.html.twig') }}
+{% endblock %}
